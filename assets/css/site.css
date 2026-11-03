@@ -1,0 +1,35 @@
+/* Shared styling for updated homepage and publications page. Prologue main.css remains unchanged. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap');
+.site-refined { --ink:#172b32; --muted:#53656a; --teal:#2b7577; --navy:#122630; --cream:#f7f5ef; --line:#dedfd8; font-family:'DM Sans','Source Sans Pro',sans-serif; font-size:16px; line-height:1.65; font-weight:400; background:var(--cream); color:var(--ink); }
+.site-refined a {transition:color .2s ease, background-color .2s ease, border-color .2s ease, transform .2s ease;}
+.site-refined a:focus-visible {outline:2px solid #77c3c2; outline-offset:4px;}
+.site-refined #header { background:#142731; background-image:none; box-shadow:inset -1px 0 rgba(255,255,255,.08); color:#f1f3ef; text-align:left; font-size:16px; }
+.site-refined #logo { margin:38px 21px 45px; min-height:0; }
+.site-refined .identity-mark { position:relative; display:flex; justify-content:center; align-items:center; height:56px; width:56px; border:1px solid #77949a; border-radius:50%; color:#f1eee6; font:500 19px/1 'Newsreader',Georgia,serif; margin-bottom:24px; }
+.site-refined .identity-spark {position:absolute; right:-6px; top:-10px; color:#d4a17a; font:20px/1 Georgia,serif;}
+.site-refined #logo h2 { font:600 17px/1.25 'DM Sans',sans-serif; color:#f4f3ee; letter-spacing:-.02em; margin:0; }
+.site-refined #logo p { font:400 11px/1.5 'DM Sans',sans-serif; margin:8px 0 0; color:#a6b9bd; }
+.site-refined #nav ul li a {display:block; padding:13px 22px; text-align:left; font:500 13px/1.3 'DM Sans',sans-serif; border:0; color:#adbdc0; background:transparent; box-shadow:none;}
+.site-refined #nav ul li a span.icon {position:relative; display:flex; align-items:center; gap:16px; padding:0; font-size:13px; line-height:1.5; white-space:nowrap;}
+.site-refined #nav ul li a span.icon::before {position:static; display:inline-block; flex:0 0 19px; width:19px; line-height:1; text-align:center; font-size:13px; margin:0; color:#89a4a9;}
+.site-refined #nav ul li a:hover {background:rgba(255,255,255,.06);color:#fff;}
+.site-refined #nav ul li a.active {background:#233944;box-shadow:inset 3px 0 #c69674;color:#fff;}
+.site-refined #nav ul li a.active span.icon::before {color:#dfad8b;}
+.site-refined .sidebar-bottom {padding:12px 23px 32px !important; text-align:left;}
+.site-refined .sidebar-social {display:flex; justify-content:flex-start; gap:21px; align-items:center; margin-bottom:25px;}
+.site-refined .sidebar-social a,.site-refined .social-pending {padding:0; margin:0; font-size:19px; border:0; color:#b9cece; text-decoration:none; background:none; line-height:1.2;}
+.site-refined .sidebar-social a:hover {color:#fff;transform:translateY(-2px);}
+.site-refined .social-pending {opacity:.45;cursor:help;}
+.site-refined .sidebar-rule {display:block;width:31px;height:1px;background:#c69774;margin-bottom:16px;}
+.site-refined .sidebar-footnote {font:400 10px/1.7 'DM Sans',sans-serif;color:#a0b5b7; margin:0;}
+.site-refined #footer {background:#132630; color:#a1b6b8; font:400 11px/1.5 'DM Sans',sans-serif; padding:24px 20px; box-shadow:none;}
+.site-refined #footer .copyright li:first-child {border-left:0; padding-left:0;margin-left:0;}
+.site-refined #footer a {border-bottom:1px solid #6c8185;color:#dae6e3;text-decoration:none;}
+.site-refined .skip-link {position:fixed;top:-70px;left:15px;z-index:3000;padding:11px 17px;background:#fff;color:#172b32;border:0;}
+.site-refined .skip-link:focus {top:14px;}
+@media (min-width:961px){.site-refined #header {width:260px;} .site-refined #main,.site-refined #footer {margin-left:260px;}}
+@media (max-width:960px){.site-refined #header {width:275px;} .site-refined #main,.site-refined #footer {margin-left:0;} .site-refined #logo{margin:35px 21px 40px;}}
+@media (prefers-reduced-motion:reduce){.site-refined *, .site-refined *::before,.site-refined *::after {transition-duration:.01ms !important;animation-duration:.01ms !important;}}
+
+/* Room for combined Research & Publications navigation label. */
+.site-refined #nav ul li a span.icon{font-size:12px;gap:13px;}

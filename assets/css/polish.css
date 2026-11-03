@@ -1,0 +1,76 @@
+/* Cross-page finishing layer (v8)
+   Intentionally small: typography, interaction states and narrow-screen details.
+   Previous theme and page-specific styles are preserved. */
+
+/* Give the shared navigation and profile controls an even, accessible rhythm. */
+.site-refined #nav ul li a { padding-top:14px; padding-bottom:14px; }
+.site-refined #nav ul li a span.icon { font-size:13px; }
+.site-refined .sidebar-social { gap:4px; margin-left:-8px; }
+.site-refined .sidebar-social a { display:inline-flex; align-items:center; justify-content:center;
+  width:42px; min-width:42px; height:42px; font-size:19px; border-radius:50%; }
+.site-refined .sidebar-social a:focus-visible { outline-offset:0; background:rgba(255,255,255,.08); }
+
+/* Links, native disclosure widgets and buttons share a visible keyboard focus. */
+.site-refined :where(a, button, summary):focus-visible {
+  outline:2px solid #2e8c92; outline-offset:4px;
+}
+.site-refined .contact-email-panel :where(a,button):focus-visible,
+.site-refined .about-closing a:focus-visible,
+.site-refined .home-outro a:focus-visible,
+.site-refined .research-intro a:focus-visible {
+  outline-color:#afe7e4;
+}
+.site-refined .paper-contribution summary { border-radius:1px; }
+.site-refined .paper-contribution summary:focus-visible { outline-offset:5px; }
+
+/* Small text was a touch too small across the template, especially in the paper list. */
+.home-page .hero-aside>p, .home-page .hero-summary-detail { font-size:15px; }
+.home-page .method p { font-size:14px; }
+.home-page .home-outro p:not(.section-kicker) { font-size:15px; }
+.research-page .research-opening p, .research-page .research-opening-body p { font-size:15px; }
+.research-page .research-card>p:not(.research-topic),
+.research-page .pub-list-intro { font-size:14px; }
+.research-page .paper-authors { font-size:13px; }
+.research-page .paper-venue, .research-page .paper-note { font-size:12px; }
+.research-page .paper-bottom>a, .research-page .paper-contribution,
+.research-page .paper-contribution summary { font-size:12px; }
+.research-page .paper-contribution p { font-size:13px; }
+.about-page .about-intro-aside p, .about-page .about-personal-copy p,
+.about-page .about-closing-grid>div:nth-child(2)>p { font-size:15px; }
+.about-page .about-stage-body>p:last-child { font-size:14px; }
+.about-page .about-practice-card p { font-size:14px; }
+.contact-page .contact-detail, .contact-page .contact-profiles-header>p { font-size:15px; }
+
+/* Keep taps comfortable and use one subtle interaction treatment across the site. */
+.home-page .home-button-primary, .contact-page .contact-mail-button,
+.contact-page .contact-copy-button { min-height:44px; }
+.research-page .paper-thumbnail:focus-visible { outline-offset:3px; }
+.research-page .research-card:focus-within { box-shadow:0 13px 28px rgba(29,48,55,.07); }
+.research-page .paper-bottom>a { padding-top:3px; padding-bottom:4px; }
+.research-page .paper-thumbnail img { background:#f0f3f1; }
+
+/* Eliminate needless hover movements for non-hover and reduced-motion devices. */
+@media (hover:none) {
+  .research-page .research-card:hover { transform:none; }
+  .research-page .paper-thumbnail:hover img { transform:none; }
+  .contact-page .contact-profile:hover .contact-profile-arrow { transform:none; }
+}
+@media (max-width:735px) {
+  .home-page .hero-stage-footer { flex-wrap:wrap; row-gap:6px; }
+  .research-page .paper-bottom { align-items:center; }
+  .research-page .paper-contribution summary { display:inline-block; min-height:34px; padding-top:6px; }
+  .contact-page .contact-profile { min-height:82px; }
+}
+@media (max-width:390px) {
+  .home-page #main .hero-stage-copy h1 { font-size:clamp(37px,10.5vw,42px); }
+  .home-page .hero-stage-footer { letter-spacing:.09em; }
+  .research-page .paper-row { grid-template-columns:92px minmax(0,1fr); gap:12px; }
+  .research-page .paper-thumbnail { width:92px; height:96px; }
+  .contact-page .contact-panel-actions { gap:11px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .site-refined :where(a,button,summary),
+  .research-page .paper-thumbnail img, .research-page .research-card {
+    transition:none!important; transform:none!important;
+  }
+}

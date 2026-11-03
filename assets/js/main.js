@@ -36,7 +36,7 @@
     // Toggle.
     $(
       '<div id="headerToggle">' +
-        '<a href="#header" class="toggle"></a>' +
+        '<a href="#header" class="toggle" aria-label="Open navigation menu" aria-controls="header" aria-expanded="false"></a>' +
       '</div>'
     )
       .appendTo($body);
@@ -46,6 +46,7 @@
       .panel({
         delay: 500,
         hideOnClick: true,
+        hideOnEscape: true,
         hideOnSwipe: true,
         resetScroll: true,
         resetForms: true,
@@ -53,5 +54,21 @@
         target: $body,
         visibleClass: 'header-visible'
       });
+
+
+  // Keep the mobile navigation button's accessible state in sync with the panel.
+  if (window.MutationObserver) {
+    var navToggle = document.querySelector('#headerToggle .toggle');
+    if (navToggle) {
+      var syncNav = function() {
+        var open = $body.hasClass('header-visible');
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      };
+      var observer = new MutationObserver(syncNav);
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+      syncNav();
+    }
+  }
 
 })(jQuery);
